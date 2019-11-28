@@ -37,8 +37,10 @@ checkOptionsOne = [
 示例中是用 `ngModel` 直接进行双向绑定，如果直接应用在响应式表单（reactive-forms）中，会出现以下错误提示：
 
 ```
-ngModel cannot be used to register form controls with a parent formGroup directive.  Try using formGroup's partner directive "formControlName" instead.
-Or, if you'd like to avoid registering this form control, indicate that it's standalone in ngModelOptions.
+ngModel cannot be used to register form controls with a parent formGroup directive. Try using 
+formGroup's partner directive "formControlName" instead.
+Or, if you'd like to avoid registering this form control, indicate that it's
+standalone in ngModelOptions.
 ```
 
 需要添加 `[ngModelOptions]="{standalone: true}"` 配置。这种绑定方式，直接将选中状态保存在原选项数组中，在实际项目场景中，通常需要将选中的 value 合并成以逗号分隔的字符串。
@@ -52,7 +54,8 @@ Or, if you'd like to avoid registering this form control, indicate that it's sta
   <nz-form-item>
       <nz-form-label [nzSpan]="6" [nzFor]="checkboxGroup">{{label}}</nz-form-label>
       <nz-form-control id="checkboxGroup">
-          <nz-checkbox-group [(ngModel)]="question.opts" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeCheckbox()"></nz-checkbox-group>
+          <nz-checkbox-group [(ngModel)]="question.opts" [ngModelOptions]="{standalone: true}"
+                             (ngModelChange)="changeCheckbox()"></nz-checkbox-group>
       </nz-form-control>
    </nz-form-item>
 </form>
